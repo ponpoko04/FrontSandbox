@@ -44,7 +44,8 @@
                 if (file){
                     fileReader.readAsDataURL(file);
                 }else{
-                    $previewArea.empty();   
+                    $previewArea.empty();
+                    refresh();
                 }
             });
         });
