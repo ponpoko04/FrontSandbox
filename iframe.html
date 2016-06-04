@@ -41,7 +41,11 @@
                     $('img.loading').remove();
                 };
 
-                fileReader.readAsDataURL(file);
+                if (file){
+                    fileReader.readAsDataURL(file);
+                }else{
+                    $previewArea.empty();   
+                }
             });
         });
     //-->
