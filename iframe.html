@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SP iframeTest</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/iscroll-5.js"></script>
+    <script>
+    <!--
+        $(function(){
+            var iscroll = new IScroll('#wrapper');
+            function refresh(){
+                iscroll.refresh();
+            }
+            $('#header').off('click').on('click', function(){
+                iscroll.destroy();
+                window.parent.parent.SD_remove(); 
+            });
+            $('#fileupload').off('change').on('change', function(){
+                var file = $(this)[0].files[0];
+                var fileReader = new FileReader();
+                
+                var $previewArea = $('#previewArea');
+                var $imgPreview = $previewArea.find('.imgPreview');
+                if ($imgPreview.size() < 1){
+                    $imgPreview = $('<img class="imgPreview"/>')
+                    $imgPreview.appendTo($previewArea);
+                }
+
+                var $loading = $('<img class="loading" src="images/loading.gif" style="position:absolute;top:25%;left:45%;"/>');
+                fileReader.onloadstart = function(e){
+                    $loading.appendTo($previewArea);
+                };
+                fileReader.onload = function(e){
+                    $imgPreview.attr('src', fileReader.result);
+                };
+                fileReader.onloadend = function(e){
+                    refresh();
+                    $('img.loading').remove();
+                };
+
+                fileReader.readAsDataURL(file);
+            });
+        });
+    //-->
+    </script>
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        #header{
+            height: 60px;
+        }
+        #wrapper{
+            position: absolute;
+            z-index: 1;
+            top: 60px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        .block{
+            background-color:gray;
+            height:500px;
+            text-align:center
+        }
+        #previewArea{
+            position: relative;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" enctype="multipart/form-data">
+        <div id="header">
+            <span>HEADER部分</span>
+        </div>
+        <div id="wrapper">
+            <div id="scroller">
+                <div class="block">スクロールが発生するよに無駄に高さをとっておく。</div>
+                <input type="file" name="fileupload" id="fileupload" accept="image/*"/>
+                <div id="previewArea"></div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

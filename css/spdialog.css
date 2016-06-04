@@ -1,0 +1,54 @@
+
+#SD_overlay
+{
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    width: 100%;
+	height:100%;
+	/*min-height:2000px;*/
+    overflow: hidden;
+    background: #000000;
+    display: none;
+    opacity:0.75;
+	filter:alpha(opacity=50);
+	-moz-opacity: 0.75;
+}
+
+#SD_window {
+	z-index: 102;
+	display:none;
+	padding:0;
+	margin:0;
+	position: absolute;
+	width:100%;
+	height:100%;
+	/*min-height:10000px;*/
+	top:0;
+	left:0;
+}
+
+#SD_load{
+	position: absolute;
+	display:none;
+	height:13px;
+	width:208px;
+	z-index:103;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -104px; /* -height/2 0 0 -width/2 */
+}
+
+#SD_iframeContent{ /* modify */
+    width:100%;
+    height:100%;
+	/*min-height:10000px;*/
+	clear:both;
+	border:none;
+	margin:0;
+	padding:0;
+	position:absolute;
+	top:0;
+	left:0;
+}
